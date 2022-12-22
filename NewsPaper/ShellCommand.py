@@ -30,6 +30,6 @@ Author.objects.get(id=2).update_rating()
 best.values('user__username', 'rating_author')
 10.bestpost = Post.objects.order_by('-rating_news')[:1]
 bestpost.values('time_create_post', 'author__user__username', 'rating_news', 'name_news')
-bestpost.preview()
-11. bestpost.comment_set.all().values('time_create_comment', 'user.username', 'rating_comment', 'text_comment')
+Post.objects.get(name_news=bestpost.values('name_news')).preview()
+11. Post.objects.get(name_news=bestpost.values('name_news')).comment_set.all().values('time_create_comment', 'user.username', 'rating_comment', 'text_comment')
 
